@@ -90,10 +90,13 @@ def plot(show=True):
 	descr_ypos		= -0.28
 	githublink_ypos	= -0.34
 
+	licence_text	= "MIT License"
+	graph_version	= "Graph version 1.0"
+
 	title_text 		= "Time required to provide population with minimum-wage worth of goods and services (" + str(year_to_plot) + ")"
 	subtitle_text	= "Comparing 1) the number of hours required (per capita and per person in the working-age population (ages 15-64)) to provide everyone in the population\nof a given country with an annual minimum-wage worth of goods and services with the country's average productivity (GDP per hour), with 2) the country's\naverage working hours. For the year " + str(year_to_plot) + "."
 	descr_text		= "Sources:\n     - Robert C. Feenstra, Robert Inklaar. “Penn World Table 10.0.” Groningen Growth and Development Centre, 2021. https://doi.org/10.15141/S5Q94M\n     - Feenstra, Robert C., Robert Inklaar, and Timmer Marcel P. “The Next Generation of the Penn World Table.” American Economic Review 105, no. 10 (October 1, 2015): 3150–82.\n       https://doi.org/10.1257/aer.20130954\n     - OECD. “Minimum Wages at Current Prices in NCU (Database),” December 15, 2021. https://stats.oecd.org/Index.aspx?DataSetCode=MW_CURP (accessed 18 April, 2022)\n     - OECD. “Working Age Population.” Accessed June 29, 2022. https://doi.org/10.1787/d339918b-en"
-	githublink_text	= "MIT License. Source code available at https://github.com/thetoblin/health_necessary_time"
+	githublink_text	= licence_text + ". " + graph_version + ". Source code available at https://github.com/thetoblin/health_necessary_time"
 
 	# title
 	matplotlib.pyplot.title(
