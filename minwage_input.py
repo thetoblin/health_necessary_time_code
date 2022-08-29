@@ -3,7 +3,7 @@
 import pandas
 import numpy
 import health_necessary_time_code.auxiliary as aux
-from health_necessary_time_code.minwage_settings import location_name, time_name, value_name, datapath
+from health_necessary_time_code.settings import location_name, time_name, value_name, datapath
 
 
 #########################################
@@ -150,19 +150,8 @@ dfs 				= {	'workhours_annual_avg': workhours_annual_avg.df,
 						'workagepop_percent': workagepop_percent.df,
 						'gdp_current_natprices': gdp_current_natprices.df,
 						}
-common_columns 		= population.df.columns			# starting here
-common_rows 		= population.df.index
-for key in dfs:
-	df = dfs[key]
-	common_columns 	= common_columns.intersection( df.columns )
-	common_rows 	= common_rows.intersection( df.index )
 
-# Discard all except the common rows and columns
-for key in dfs:
-	df 				= dfs[key]
-	df 				= aux.dataframe_with_these_columns( df, list(common_columns ))
-	df 				= aux.dataframe_with_these_rows( df, list(common_rows ))
-	dfs[key] 		= df.sort_index()
+dfs = aux.get_dfs_with_common_rows_and_columns(dfs)
 
 # make sure that the dataframes have the data sorted and organized the same way
 for key1 in dfs:

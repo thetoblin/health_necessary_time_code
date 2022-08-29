@@ -14,6 +14,27 @@ import os
 ########   DATA PROCESSING   ############
 #########################################
 
+def get_dfs_with_common_rows_and_columns(dfs):
+	# start with any dataframe to get a start for the common columns and rows
+	start_df			= dfs[ list(dfs.keys())[0] ]
+	common_columns 		= start_df.columns
+	common_rows 		= start_df.index
+
+	# get the rows and columns that are in common
+	for key in dfs:
+		df = dfs[key]
+		common_columns 	= common_columns.intersection( df.columns )
+		common_rows 	= common_rows.intersection( df.index )
+
+	# discard all except the common rows and columns
+	for key in dfs:
+		df 				= dfs[key]
+		df 				= dataframe_with_these_columns( df, list(common_columns ))
+		df 				= dataframe_with_these_rows( df, list(common_rows ))
+		dfs[key] 		= df.sort_index()
+
+	return dfs
+
 def dataframe_keep_rows_with_columnvalues( df, colval_to_keep ):
 	# takes a dataframe and only keeps the values that are specified by the user
 	# input:
@@ -31,6 +52,7 @@ def dataframe_keep_rows_with_columnvalues( df, colval_to_keep ):
 		df = df[ df[col].isin(val) ]
 
 	return df
+
 
 def dataframe_remove_rows_with_NaN_values( df ):
 	is_NaN = df.isnull()
