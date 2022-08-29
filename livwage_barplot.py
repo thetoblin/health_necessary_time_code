@@ -99,16 +99,17 @@ def plot(show=True):
 	seaborn.despine(ax=ax)
 
 	# add logotype
+	figquality	= 300
 	fig 		= matplotlib.pyplot.gcf()					# get current figure
-	logo 		= Image.open('logo.png')					# open logo image file
-	figsize 	= fig.get_size_inches()*fig.dpi				# get the size of the pyplot figure in pixels
-	logo_xpos	= figsize[0]-logo.size[0] + 225				# set the logos xposition in pixels
-	logo_ypos	= figsize[1]-logo.size[1] + 182				# set the logos xposition in pixels
+	logo 		= Image.open('logo2.png')					# open logo image file
+	figsize 	= fig.get_size_inches()*figquality #*fig.dpi # get the size of the pyplot figure in pixels
+	logo_xpos	= figsize[0]*1.13							# set the logos xposition in pixels
+	logo_ypos	= figsize[1]*1.07							# set the logos xposition in pixels
 	fig.figimage( logo, xo=logo_xpos, yo=logo_ypos )		# place image in figure
 
 	###################
 
-	matplotlib.pyplot.savefig('livwage_barplot.png', bbox_inches='tight')
+	matplotlib.pyplot.savefig('livwage_barplot.png', bbox_inches='tight', dpi=figquality)
 
 	if show:
 		matplotlib.pyplot.show()
