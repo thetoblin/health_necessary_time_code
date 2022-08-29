@@ -9,7 +9,7 @@ from PIL import Image
 
 from health_necessary_time_code.minwage_estimate import minwage_nectime_weekly_perworkingageperson_df
 from health_necessary_time_code.derived_data import workhours_weekly_avg_df
-from health_necessary_time_code.minwage_settings import year_to_plot
+from health_necessary_time_code.settings import year_to_plot
 import health_necessary_time_code.auxiliary as aux
 
 
