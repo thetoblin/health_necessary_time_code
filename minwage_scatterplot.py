@@ -49,13 +49,13 @@ def plot(show=True):
     ax.legend(loc='lower right',  ncol=3, fancybox=True, shadow=True)
 
     # fix axes
-    matplotlib.pyplot.xlabel('Average working hours [hours/week]', fontsize=18)
-    matplotlib.pyplot.xticks(fontsize=16)
-    matplotlib.pyplot.ylabel('Time required per working-age person [hours/week]', fontsize=18)
-    matplotlib.pyplot.yticks(fontsize=16)
+    matplotlib.pyplot.xticks(fontsize=22)
+    matplotlib.pyplot.xlabel('Time required per working-age person [hours/week]', fontsize=22)
+    matplotlib.pyplot.yticks(fontsize=22)
+    matplotlib.pyplot.ylabel('Average working hours [hours/week]', fontsize=22)
 
 	###   set title, subtitle, and description   ###
-    title_ypos 		= 1.14
+    title_ypos 		= 1.12
     subtitle_ypos 	= 1.04
     descr_ypos		= -0.20
     githublink_ypos	= descr_ypos-0.03        #-0.28
@@ -106,8 +106,8 @@ def plot(show=True):
     fig 		= matplotlib.pyplot.gcf()					# get current figure
     logo 		= Image.open('logo.png')					# open logo image file
     figsize 	= fig.get_size_inches()*fig.dpi				# get the size of the pyplot figure in pixels
-    logo_xpos	= figsize[0]-logo.size[0]-305				# set the logos xposition in pixels
-    logo_ypos	= figsize[1]-logo.size[1]+115				# set the logos xposition in pixels
+    logo_xpos	= figsize[0]-logo.size[0]-290				# set the logos xposition in pixels
+    logo_ypos	= figsize[1]-logo.size[1]+103				# set the logos xposition in pixels
     fig.figimage( logo, xo=logo_xpos, yo=logo_ypos )		# place image in figure
 
     matplotlib.pyplot.savefig('minwage_scatterplot.png', bbox_inches='tight')
