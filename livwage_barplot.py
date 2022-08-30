@@ -105,7 +105,7 @@ def plot(show=True):
 	logo 		= Image.open('logo2.png')					# open logo image file
 	figsize 	= fig.get_size_inches()*figquality #*fig.dpi # get the size of the pyplot figure in pixels
 	logo_xpos	= figsize[0]*1.13							# set the logos xposition in pixels
-	logo_ypos	= figsize[1]*1.07							# set the logos xposition in pixels
+	logo_ypos	= figsize[1]*1.06							# set the logos xposition in pixels
 	fig.figimage( logo, xo=logo_xpos, yo=logo_ypos )		# place image in figure
 
 	###################
